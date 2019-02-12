@@ -11,3 +11,16 @@ app.use(require("webpack-dev-middleware")(compiler, {
 app.use(require("webpack-hot-middleware")(compiler))
 var config = require('./getConfig')()
 app.listen(config.serverPort)
+
+app.get(
+		'/news',
+		(req, res) => res.send({
+				type:'pass',
+				data:{
+						items:[
+								{status:'1'},
+								{status:'2'}
+						]
+				}
+		})
+)
